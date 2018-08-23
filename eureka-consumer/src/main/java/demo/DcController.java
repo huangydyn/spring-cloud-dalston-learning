@@ -17,12 +17,34 @@ public class DcController {
     @Autowired
     RestTemplate restTemplate;
 
-    @GetMapping("/consumer")
-    public String dc() {
+    @Autowired
+    DcClient dcClient;
+
+    @Autowired
+    ConsumerService consumerService;
+
+    @GetMapping("/loadBalancerClient")
+    public String loadBalancerClient() {
         ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-client-a");
         String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/dc";
         System.out.println(url);
-        return restTemplate.getForObject(url, String.class);
+        return new RestTemplate().getForObject(url, String.class);
     }
 
+    @GetMapping("/ribbon")
+    public String ribbon() {
+        return restTemplate.getForObject("http://eureka-client-a/dc", String.class);
+    }
+
+
+
+    @GetMapping("/feign")
+    public String feign() {
+        return dcClient.consumer();
+    }
+
+    @GetMapping("/hystrix")
+    public String hystrix() {
+        return consumerService.consumer();
+    }
 }
