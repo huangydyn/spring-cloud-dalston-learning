@@ -28,7 +28,6 @@ ext {
     springCloudVersion = 'Dalston.RELEASE'
 }
 
-
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-web'
@@ -36,6 +35,7 @@ dependencies {
     compile 'net.logstash.logback:logstash-logback-encoder:4.7'
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
     compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
+    compile 'org.springframework.cloud:spring-cloud-starter-sleuth'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

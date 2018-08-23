@@ -1,5 +1,7 @@
 package demo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -10,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class DcController {
+    private static Logger log = LoggerFactory.getLogger(DcController.class);
 
     @Autowired
     LoadBalancerClient loadBalancerClient;
@@ -33,6 +36,7 @@ public class DcController {
 
     @GetMapping("/ribbon")
     public String ribbon() {
+        log.info("trace request ribbon");
         return restTemplate.getForObject("http://eureka-client-a/dc", String.class);
     }
 

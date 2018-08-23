@@ -40,6 +40,8 @@ dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
     compile 'org.springframework.cloud:spring-cloud-starter-hystrix-dashboard'
     compile 'org.springframework.cloud:spring-cloud-starter-turbine'
+    compile 'org.springframework.cloud:spring-cloud-starter-sleuth' +
+            ''
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
