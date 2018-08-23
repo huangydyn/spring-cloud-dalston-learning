@@ -43,8 +43,8 @@ public class DcController {
         return dcClient.consumer();
     }
 
-    @GetMapping("/hystrix")
-    public String hystrix() {
+    @GetMapping("/fallBack")
+    public String fallBack() {
         return consumerService.consumer();
     }
 }
