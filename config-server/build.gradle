@@ -10,40 +10,34 @@ buildscript {
     }
 }
 
-repositories {
-    jcenter()
-}
-
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-archivesBaseName = 'eureka-consumer'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 version = '1.0-SNAPSHOT'
+archivesBaseName = 'config-server'
+
+repositories {
+    jcenter()
+}
+
 
 ext {
     springCloudVersion = 'Dalston.RELEASE'
 }
 
-
 dependencies {
+    compile 'org.springframework.cloud:spring-cloud-config-server'
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
+    compile('org.springframework.cloud:spring-cloud-starter-hystrix')
+    // compile 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.apache.commons:commons-lang3:3.6'
     compile 'net.logstash.logback:logstash-logback-encoder:4.7'
-    compile 'org.springframework.cloud:spring-cloud-starter-config'
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-    compile 'org.springframework.cloud:spring-cloud-starter-ribbon'
-    compile 'org.springframework.cloud:spring-cloud-starter-feign'
-    compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
-    compile 'org.springframework.cloud:spring-cloud-starter-hystrix-dashboard'
-    compile 'org.springframework.cloud:spring-cloud-starter-turbine'
-    compile 'org.springframework.cloud:spring-cloud-starter-sleuth'
-    compile 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
-
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
@@ -56,3 +50,4 @@ dependencyManagement {
 springBoot {
     executable = true
 }
+

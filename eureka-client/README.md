@@ -1,1 +1,1 @@
-# eureka-client-a
+# eureka-client

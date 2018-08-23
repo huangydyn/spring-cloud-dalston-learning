@@ -9,7 +9,7 @@ ENV APP_DIR  /opt/apps
 RUN mkdir -p $APP_DIR
 
 WORKDIR $APP_DIR
-COPY build/libs/eureka-client-1.0-SNAPSHOT.jar $APP_DIR
+COPY build/libs/config-server-1.0-SNAPSHOT.jar $APP_DIR
 COPY startup.sh $APP_DIR
 RUN chmod u+x ./startup.sh
 HEALTHCHECK CMD wget -qO-  http://localhost:8001/health || exit 1

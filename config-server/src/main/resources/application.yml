@@ -1,0 +1,25 @@
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:huangydyn/spring-cloud-config-data.git
+          cloneOnStart: true
+          searchPaths: '{application}/{profile}'
+
+  # rabbitmq:
+  #    host: 10.205.22.212
+  #    port: 5672
+  #    username: admin
+  #    password: 123
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+
+# For simplicity, disable security when posting to bus/refresh:  
+management:
+  security:
+    enabled: false

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CLASSPATH="eureka-client-1.0-SNAPSHOT.jar"
+CLASSPATH="config-server-1.0-SNAPSHOT.jar"
 
 MAIN_CLASS="org.springframework.boot.loader.PropertiesLauncher"
 JAVA_CMD=java

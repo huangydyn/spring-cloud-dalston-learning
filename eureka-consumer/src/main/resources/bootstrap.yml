@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  application:
+    name: eureka-consumer
+  cloud:
+    config:
+      uri: http://localhost:1201
+      enabled: true
+      fail-fast: true
+
+server:
+  port: 8003
+
+management:
+  security:
+      enabled: false

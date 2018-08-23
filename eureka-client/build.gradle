@@ -18,7 +18,7 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-archivesBaseName = 'eureka-client-a'
+archivesBaseName = 'eureka-client'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
