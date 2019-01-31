@@ -1,0 +1,29 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+server:
+  port: 8004
+spring:
+  application:
+    name: eureka-zuul
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+
+zuul:
+  routes:
+    client:
+      path: /client/**
+      service-id: eureka-consumer
+  ratelimit:
+    enabled: true
+    repository: REDIS
+    policy-list:
+      client:
+      - limit: 3 #optional - request number limit per refresh interval window
+        #        quota: 1000 #optional - request time limit per refresh interval window (in seconds)
+        refresh-interval: 60 #default value (in seconds)
+        type: #optional
+        - origin
