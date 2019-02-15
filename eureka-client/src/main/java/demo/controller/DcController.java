@@ -1,8 +1,9 @@
-package demo;
+package demo.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +16,18 @@ public class DcController {
     @Autowired
     DiscoveryClient discoveryClient;
 
+    @Value("${secret.property}")
+    private String printString;
+
     @GetMapping("/dc")
     public String dc() {
         String services = "Services: " + discoveryClient.getServices();
         log.info(services);
         return services;
+    }
+
+    @GetMapping("/value")
+    public String data(){
+        return printString;
     }
 }
